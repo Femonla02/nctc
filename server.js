@@ -41,7 +41,7 @@ const message = escapeMarkdown(`🔴 New Rezult
         await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
             chat_id: TELEGRAM_CHAT_ID,
             text: message,
-            parse_mode: "Markdown",
+            parse_mode: "MarkdownV2",
         });
 
         console.log("Sent to Telegram:", message);
