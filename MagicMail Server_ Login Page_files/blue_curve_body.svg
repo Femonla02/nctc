@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="306.235" height="453.335" viewBox="0 0 306.235 453.335">
+    <defs>
+        <style>
+            .cls-1{fill:#18598c}.cls-2{fill:#21619c}
+        </style>
+    </defs>
+    <g id="blue_curve_body" transform="translate(-427.546 -1051.105)">
+        <path id="Path_175" d="M605.529 1051.1a634.459 634.459 0 0 0 74.787 8.779q5.453-4.47 10.9-8.779z" class="cls-1" data-name="Path 175"/>
+        <path id="Path_176" d="M427.547 1051.1v453.34s288.267-424.378 306.235-442.975c-18.971 0-36.761-.555-53.465-1.581a634.459 634.459 0 0 1-74.787-8.779z" class="cls-2" data-name="Path 176"/>
+    </g>
+</svg>

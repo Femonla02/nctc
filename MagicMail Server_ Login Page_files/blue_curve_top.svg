@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="493.167" height="130" viewBox="0 0 493.167 130">
+    <defs>
+        <style>
+            .cls-1{fill:#18598c}.cls-2{fill:#21619c}
+        </style>
+    </defs>
+    <g id="blue_curve_top" transform="translate(-427.547 -921.105)">
+        <path id="Path_177" d="M605.529 1051.1h85.688c116.448-92.132 229.5-130 229.5-130h-493.17v15.83c.067.398 14.412 84.355 177.982 114.17z" class="cls-1" data-name="Path 177"/>
+        <path id="Path_178" d="M427.547 936.93v114.17h177.982c-163.57-29.815-177.915-113.772-177.982-114.17z" class="cls-2" data-name="Path 178"/>
+    </g>
+</svg>
